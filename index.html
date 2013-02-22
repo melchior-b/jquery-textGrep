@@ -34,9 +34,9 @@
 
 <p>This plugin is meant to simplify applying styles to certain text patterns, for example for typographic purposes.</p>
 
-<p><strong>It does pretty much what Grep Styles do in Adobe® InDesign®.</strong></p>
+<p><strong>TextGrep does pretty much what Grep Styles do in Adobe® InDesign®.</strong></p>
 
-<h2>Examples</h2>
+<h2>Basic use</h2>
 
 <p>Add the class <em>number</em> to all numbers.</p>
 
@@ -49,7 +49,7 @@
 <div class="highlight"><pre><span class="nt">&lt;p&gt;</span>Copyright <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"number"</span><span class="nt">&gt;</span>2013<span class="nt">&lt;/span&gt;</span> ACME Corp.<span class="nt">&lt;/p&gt;</span>
 </pre></div>
 
-<hr><p>Add the class <em>capitals</em> to all words written in captial letters.</p>
+<p>Add the class <em>capitals</em> to all words written in captial letters.</p>
 
 <div class="highlight"><pre><span class="nt">&lt;p&gt;</span>Copyright 2013 ACME Corp.<span class="nt">&lt;/p&gt;</span>
 </pre></div>
@@ -58,6 +58,25 @@
 </pre></div>
 
 <div class="highlight"><pre><span class="nt">&lt;p&gt;</span>Copyright 2013 <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"capitals"</span><span class="nt">&gt;</span>ACME<span class="nt">&lt;/span&gt;</span> Corp.<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+<h2>Presets</h2>
+
+<p>TextGrep provides presets for commonly used regular expressions.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;p&gt;</span>Copyright 2013 ACME Corp.<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'p'</span><span class="p">).</span><span class="nx">textGrep</span><span class="p">(</span><span class="s1">'number'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'number'</span><span class="p">);</span>
+</pre></div>
+
+<div class="highlight"><pre><span class="nt">&lt;p&gt;</span>Copyright <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"number"</span><span class="nt">&gt;</span>2013<span class="nt">&lt;/span&gt;</span> ACME Corp.<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+<p>Presets can be added easily as well.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">textGrep</span><span class="p">.</span><span class="nx">presets</span><span class="p">.</span><span class="nx">test</span> <span class="o">=</span> <span class="sr">/test/g</span><span class="p">;</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'p'</span><span class="p">).</span><span class="nx">textGrep</span><span class="p">(</span><span class="s1">'test'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
 </pre></div>
       </section>
       <footer>
