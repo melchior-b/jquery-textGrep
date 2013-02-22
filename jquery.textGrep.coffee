@@ -9,8 +9,13 @@
 ###
 
 setup = ($) ->
-  textGrep = (regex, tag='span') ->
-    result = $ []
+  presets =
+    number:     /\b[\d\,\.]+\b/g
+    capitals:   /\b[A-Z][A-Z0-9]+\b/g
+
+  textGrep = (sel, tag='span') ->
+    result  = $ []
+    regex   = if typeof sel is 'string' then presets[sel] else sel
 
     @find(":not(iframe)").andSelf().contents().each ->
       if @nodeType == 3
@@ -32,5 +37,6 @@ setup = ($) ->
     result
 
   $.extend $.fn, textGrep: textGrep
+  $.extend $, textGrep: { presets: presets }
 
 setup jQuery
